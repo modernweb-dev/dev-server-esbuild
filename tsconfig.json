@@ -1,0 +1,35 @@
+{
+  "ts-node": {
+    "experimentalResolver": true
+  },
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": true,
+    "allowJs": true,
+    "target": "ES2017",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "types": ["node", "mocha", "chai"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES6",
+      "ES2017",
+      // Allows array.flatMap. import `array-flat-polyfill` to cover node10
+      "ES2019.array",
+      "ScriptHost"
+    ]
+  },
+  "include": ["src", "types"],
+  "exclude": ["src/browser", "tests", "dist"]
+}
