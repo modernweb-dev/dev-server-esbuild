@@ -1,0 +1,67 @@
+name: Node tests
+
+on: pull_request
+
+env:
+  FORCE_COLOR: true
+
+jobs:
+  verify-linux:
+    timeout-minutes: 30
+    name: Linux
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - '18'
+          - '20'
+          - 'latest'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        env:
+          FORCE_COLOR: 0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Test
+        run: npm run test
+
+  verify-windows:
+    timeout-minutes: 30
+    name: Windows
+    runs-on: windows-2022
+    steps:
+      - name: Set git to use LF
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
+      - uses: actions/checkout@v4
+
+      - name: Setup Node '20'
+        uses: actions/setup-node@v4
+        env:
+          FORCE_COLOR: 0
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test
