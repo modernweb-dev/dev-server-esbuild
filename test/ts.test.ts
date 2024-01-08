@@ -253,7 +253,10 @@ class Bar {
         {
           name: 'test',
         },
-        esbuildPlugin({ ts: true, tsconfig: path.join(__dirname, 'fixture', 'tsconfig.json') }),
+        esbuildPlugin({
+          ts: true,
+          tsconfig: path.join(__dirname, 'fixture', 'tsconfig.json'),
+        }),
       ],
     });
 

@@ -34,7 +34,12 @@ describe('isLatestModernBrowser', () => {
 
   it('returns true for latest Chrome Headless', async () => {
     const latest = getLatestStableMajor(browsers.chrome.releases)!;
-    expect(isLatestModernBrowser({ name: 'Chrome Headless', version: String(latest) })).to.be.true;
+    expect(
+      isLatestModernBrowser({
+        name: 'Chrome Headless',
+        version: String(latest),
+      }),
+    ).to.be.true;
   });
 
   it('returns true for latest chromium', async () => {
