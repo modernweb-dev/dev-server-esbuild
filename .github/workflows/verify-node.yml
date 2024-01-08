@@ -34,9 +34,6 @@ jobs:
       - name: Build packages
         run: npm run build
 
-      - name: Build types for js packages
-        run: npm run types
-
       - name: Test
         run: npm run test
 
