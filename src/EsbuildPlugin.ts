@@ -63,7 +63,7 @@ export class EsbuildPlugin implements Plugin {
     this.logger = logger;
     if (this.esbuildConfig.tsconfig) {
       const parsedTsconfig = await parseTsconfig(this.esbuildConfig.tsconfig);     
-      this.tsconfigRaw = parsedTsconfig ? JSON.stringify(parsedTsconfig) : await promisify(fs.readFile)(this.esbuildConfig.tsconfig, 'utf8');
+      this.tsconfigRaw = JSON.stringify(parsedTsconfig);
     }
   }
 
