@@ -123,7 +123,11 @@ class Bar {
         },
         esbuildPlugin({
           ts: true,
-          tsconfig: path.join(__dirname, 'fixture', 'tsconfig-with-experimental-decorators-parent.json'),
+          tsconfig: path.join(
+            __dirname,
+            'fixture',
+            'tsconfig-with-experimental-decorators-parent.json',
+          ),
         }),
       ],
     });
