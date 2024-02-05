@@ -1,5 +1,11 @@
 # @web/dev-server-esbuild
 
+## 1.0.2
+
+### Patch Changes
+
+- cc6d80e: Use get-tsconfig to parse a given tsconfig file
+
 ## 1.0.1
 
 ### Patch Changes
