@@ -57,7 +57,7 @@
     "transform"
   ],
   "dependencies": {
-    "@mdn/browser-compat-data": "^4.0.0",
+    "@mdn/browser-compat-data": "^5.5.14",
     "@web/dev-server-core": "^0.7.0",
     "esbuild": "^0.19.11",
     "get-tsconfig": "^4.7.2",
